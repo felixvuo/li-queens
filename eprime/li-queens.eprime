@@ -1,0 +1,21 @@
+language ESSENCE' 1.0
+given n : int
+
+letting N be domain int(1..n)
+
+given board : matrix indexed by [N,N] of int(0..n-1)
+
+$ queens represented by a column id per row
+find q : matrix indexed by [N] of N
+
+such that
+
+alldifferent(q),
+
+$ can't be diagonally adjacent
+forall r : int(1..n-1) . |q[r] - q[r+1]| > 1,
+
+$ one queen per colour
+forall r1 : int(1..n-1) .
+  forall r2 : int(r1+1..n) .
+    board[r1,q[r1]] != board[r2,q[r2]]
