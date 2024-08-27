@@ -31,7 +31,7 @@ def main():
     )
     ap.add_argument(
         '--sample_size', '-s', type=int, default=10,
-        help="Maximum number of images to process when using the --directory option"
+        help="Maximum number of images to process when using the --directory option (default=10)"
     )
     ap.add_argument(
         '--save-file', '-f', type=paths.Path,
@@ -137,6 +137,7 @@ def drawPuzzleAndPalette(p,cols,title='',save_as=None):
     ax.imshow(Image.fromarray(pal,mode='RGB'))
     fig.tight_layout()
     fig.savefig(save_as, dpi=600)
+    plt.close()
 
 
 def makeConstraintInstance(p,cols):
